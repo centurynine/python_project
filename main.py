@@ -3,7 +3,7 @@ from tkinter import *
 
 import pymysql
 
-con = pymysql.connect(host="localhost", database="pythonlab", user="root", password="123456789", charset="utf8")
+con = pymysql.connect(host="localhost", database="python_project", user="root", password="", charset="utf8")
 print(con)
 
 project = Tk()

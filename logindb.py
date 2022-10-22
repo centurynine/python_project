@@ -33,7 +33,7 @@ def logintodb(user, passw):
         cursor = db.cursor()
          
     # A Table in the database
-    savequery = "select * from book"
+    savequery = "select * from books"
      
     try:
         cursor.execute(savequery)

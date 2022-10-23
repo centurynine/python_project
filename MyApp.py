@@ -10,7 +10,7 @@ import pymysql
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
+        Dialog.setObjectName("Login Page")
         Dialog.resize(495, 659)
         Dialog.setAutoFillBackground(False)
         Dialog.setStyleSheet("background-color: rgb(27, 29, 35);")

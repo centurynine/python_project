@@ -62,11 +62,21 @@ class Ui_Dialog(object):
         self.homeButton.clicked.connect(self.home)
 
 
+
     def home(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = MyApp.Ui_Dialog()
         self.ui.setupUi(self.window)
         self.window.show()
+
+    #def hideBook():
+    #    Dialog = QtWidgets.QDialog()
+    #    ui = Ui_Dialog()
+    #    ui.setupUi(Dialog)
+    #    Dialog.hide()
+
+
+        
 
 if __name__ == "__main__":
     import sys

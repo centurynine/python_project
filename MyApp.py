@@ -125,13 +125,13 @@ class Ui_Dialog(object):
     def callSql(self):
         username = self.usernameText.text()
         passsword = self.passwordText.text()
-        con = pymysql.connect(host="localhost", database="python_project", user=username, password=passsword, charset="utf8")
+        con = pymysql.connect(host="localhost", database="python_project", user='root', password='', charset="utf8")
         print(con)
 
     def callDatabase(self):
         username = self.usernameText.text()
         passsword = self.passwordText.text()
-        sqlConnection = pymysql.connect(host="localhost", database="python_project", user=username, password=passsword,
+        sqlConnection = pymysql.connect(host="localhost", database="python_project", user='root', password='',
          charset="utf8")
         print(sqlConnection)
 
@@ -140,11 +140,10 @@ class Ui_Dialog(object):
                 # Create a new record
                         sql = "INSERT INTO `users` (`username`, `password`, `displayname`) VALUES (%s, %s, %s)"
                         cursor.execute(sql, ('username', 'passsword', 'displaynametest'))
-                        cursor = sqlConnection.cursor()
-                        cursor.close()
+                        sqlConnection.commit()
         # connection is not autocommit by default. So you must commit to save
         # your changes.
-        sqlConnection.commit()
+        #sqlConnection.commit()
 
         #with sqlConnection.cursor() as cursor:
         #       # Read a single record

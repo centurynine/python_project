@@ -19,7 +19,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(27, 29, 35);</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="usernameText">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -57,7 +57,7 @@ backgroud-color: rgb(43, 45, 56);
     <string>Username</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="passwordText">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -95,7 +95,7 @@ backgroud-color: rgb(43, 45, 56);
     <string>Password</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="loginbutton">
    <property name="geometry">
     <rect>
      <x>180</x>

@@ -7,7 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
+import pymysql
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -15,15 +15,15 @@ class Ui_Dialog(object):
         Dialog.resize(495, 659)
         Dialog.setAutoFillBackground(False)
         Dialog.setStyleSheet("background-color: rgb(27, 29, 35);")
-        self.lineEdit = QtWidgets.QLineEdit(Dialog)
-        self.lineEdit.setGeometry(QtCore.QRect(140, 180, 240, 40))
+        self.usernameText = QtWidgets.QLineEdit(Dialog)
+        self.usernameText.setGeometry(QtCore.QRect(140, 180, 240, 40))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
-        self.lineEdit.setFont(font)
-        self.lineEdit.setStyleSheet("QLineEdit {\n"
+        self.usernameText.setFont(font)
+        self.usernameText.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
 "    color: #FFF;\n"
@@ -38,16 +38,16 @@ class Ui_Dialog(object):
 "    border: 2px solid rgb(85, 170, 255);\n"
 "backgroud-color: rgb(43, 45, 56);\n"
 "}")
-        self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit_2 = QtWidgets.QLineEdit(Dialog)
-        self.lineEdit_2.setGeometry(QtCore.QRect(140, 260, 240, 40))
+        self.usernameText.setObjectName("usernameText")
+        self.passwordText = QtWidgets.QLineEdit(Dialog)
+        self.passwordText.setGeometry(QtCore.QRect(140, 260, 240, 40))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
-        self.lineEdit_2.setFont(font)
-        self.lineEdit_2.setStyleSheet("QLineEdit {\n"
+        self.passwordText.setFont(font)
+        self.passwordText.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
 "    color: #FFF;\n"
@@ -62,14 +62,14 @@ class Ui_Dialog(object):
 "    border: 2px solid rgb(85, 170, 255);\n"
 "backgroud-color: rgb(43, 45, 56);\n"
 "}")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.pushButton = QtWidgets.QPushButton(Dialog)
-        self.pushButton.setGeometry(QtCore.QRect(180, 370, 141, 51))
+        self.passwordText.setObjectName("passwordText")
+        self.loginbutton = QtWidgets.QPushButton(Dialog)
+        self.loginbutton.setGeometry(QtCore.QRect(180, 370, 141, 51))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(18)
-        self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("QPushButton {\n"
+        self.loginbutton.setFont(font)
+        self.loginbutton.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
 "    color: #FFF;\n"
@@ -84,7 +84,7 @@ class Ui_Dialog(object):
 "{\n"
 "  border: 2px solid rgb(255, 73, 73);\n"
 "}")
-        self.pushButton.setObjectName("pushButton")
+        self.loginbutton.setObjectName("loginbutton")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -92,9 +92,18 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.lineEdit.setPlaceholderText(_translate("Dialog", "Username"))
-        self.lineEdit_2.setPlaceholderText(_translate("Dialog", "Password"))
-        self.pushButton.setText(_translate("Dialog", "Login"))
+        self.usernameText.setPlaceholderText(_translate("Dialog", "Username"))
+        self.passwordText.setPlaceholderText(_translate("Dialog", "Password"))
+        self.loginbutton.setText(_translate("Dialog", "Login"))
+        self.loginbutton.clicked.connect(self.callSql)
+
+
+    def callSql(self):
+        username = self.usernameText.text()
+        passsword = self.passwordText.text()
+        con = pymysql.connect(host="localhost", database="python_project", user=username, password=passsword, charset="utf8")
+        print(con)
+
 
 
 if __name__ == "__main__":

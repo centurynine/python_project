@@ -12,12 +12,21 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 import pymysql
 import alertOk
 
+
 userSQL = 'root'
 passSQL = ''
 book_id = '1'
 
-class Ui_Dialog(object):
+
+class EditDatabaseClass(object):
+    #print(bookTEST)
+    def someFunction(self, book_id):
+        from book import bookMain
+        book_id = bookMain.selectedBook
+        print('editDB : '+book_id)
+        return book_id
     def setupUi(self, Upload):
+        self.someFunction(book_id)
         Upload.setObjectName("Dialog")
         Upload.resize(495, 659)
         font = QtGui.QFont()
@@ -240,7 +249,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
+    ui = EditDatabaseClass()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec())

@@ -10,10 +10,12 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from pygame import Cursor
 import MyApp
 import pymysql
-
+import editdb
+selectedBook = ''
 userSQL = 'root'
 passSQL = ''
-class Ui_Dialog(object):
+class bookMain(object):
+    selectedBook = '27'
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(495, 659)
@@ -79,7 +81,8 @@ class Ui_Dialog(object):
         self.label.setText(_translate("Dialog", "รายการหนังสือ"))
         self.homeButton.setText(_translate("Dialog", "หน้าแรก"))
         self.homeButton.clicked.connect(self.home)
-        self.listWidget.itemActivated.connect(itemActivated_event)
+        self.listWidget.itemClicked.connect(itemActivated_event)
+        self.listWidget.itemActivated.connect(self.openEditData)
 
     def home(self):
         self.window = QtWidgets.QMainWindow()
@@ -105,12 +108,41 @@ class Ui_Dialog(object):
                 self.listWidget.item(data.index(i)).setData(1,i[3])
         con.close()
 
+    def openEditData(self):
+        global selectedBook
+        
+        self.window = QtWidgets.QMainWindow()
+        self.ui = editdb.EditDatabaseClass()
+        self.ui.setupUi(self.window)
+        print( "selectedBook : "+str(selectedBook) )
+    #    self.ui.editData(str(selectedBook))
+        self.window.show()
+
 
 def itemActivated_event(item):
-     itemID = item.data(1)
-     print("ID : "+str(itemID))
+        itemID = item.data(1)
+        print("ID : "+str(itemID))
+        global selectedBook
+        selectedBook = itemID
+        
 
+def openEditDB():
+    #Dialog = QtWidgets.QDialog()
+    #ui = editdb.EditDatabase()
+    #ui.setupUi(Dialog)
+    #Dialog.show()
+    #    ui.editBook(itemID)
 
+    # EditDatabase = QtWidgets.QDialog()
+    # ui = editdb.EditDatabase()
+    # ui = EditDatabase()
+    # ui.setupUi(EditDatabase )
+    # EditDatabase.show()
+
+    DialogEdit = QtWidgets.QDialog()
+    ui = editdb.EditDatabaseClass()
+    ui.setupUi(DialogEdit)
+    DialogEdit.show()
 
 
 
@@ -121,7 +153,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
+    ui = bookMain()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec())

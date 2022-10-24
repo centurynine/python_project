@@ -138,23 +138,23 @@ class Ui_Dialog(object):
 "  border: 2px solid rgb(255, 73, 73);\n"
 "}")
         self.cancelButton.setObjectName("cancelButton")
-        self.descriptionText = QtWidgets.QTextEdit(Dialog)
+        self.descriptionText = QtWidgets.QPlainTextEdit(Dialog)
         self.descriptionText.setGeometry(QtCore.QRect(70, 280, 361, 251))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(12)
         self.descriptionText.setFont(font)
-        self.descriptionText.setStyleSheet("QTextEdit {\n"
+        self.descriptionText.setStyleSheet("QPlainTextEdit {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
 "    color: #FFF;\n"
 "    padding-left: 20px;\n"
 "    padding-right: 20px;\n"
 "}\n"
-"QTextEdit:hover {\n"
+"QPlainTextEdit:hover {\n"
 "    border: 2px solid rgb(48, 50, 62);\n"
 "}\n"
-"QTextEdit:focus {\n"
+"QPlainTextEdit:focus {\n"
 "    border: 2px solid rgb(85, 170, 255);\n"
 "}")
         self.descriptionText.setObjectName("descriptionText")
@@ -190,12 +190,24 @@ class Ui_Dialog(object):
         print('Author : ', author)
         print('Cost : ', cost)
         print('Description : ', description)
+        sql = "INSERT INTO books (name, author, cost, description) VALUES (%s, %s, %s, %s)"
+        val = (book, author, cost, description)
+        cursor = sqlConnection.cursor()
+        cursor.execute(sql, val)
+        sqlConnection.commit()
+        print(cursor.rowcount, "เพิ่ม Record สำเร็จ")
+        self.booknameText.setText("")
+        self.authorText.setText("")
+        self.costText.setText("")
+        self.descriptionText.setPlainText("")
+
+
 
         #with sqlConnection:
         #        with sqlConnection.cursor() as cursor:
-        #        # Create a new record
-        #                sql = "INSERT INTO `users` (`username`, `password`, `displayname`) VALUES (%s, %s, %s)"
-        #               cursor.execute(sql, ('username', 'passsword', 'displaynametest'))
+        #        # เพิ่ม Record ลงในตาราง
+        #                sql = "INSERT INTO `books` (`name`, `author`, `cost`, `description`) VALUES (%s, %s, %s, %s)"
+        #                cursor.execute(sql, (book, author, cost, description))
         #                sqlConnection.commit()
 
 

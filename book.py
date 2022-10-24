@@ -7,8 +7,12 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from pygame import Cursor
 import MyApp
+import pymysql
 
+userSQL = 'root'
+passSQL = ''
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -89,8 +93,14 @@ class Ui_Dialog(object):
     #    Dialog.hide()
 
     def addList(self):
-        self.listWidget.addItem("test")
-        
+        print('fetching data')
+        con = pymysql.connect(host="localhost", database="python_project",user=userSQL, password=passSQL, charset="utf8")
+        cursor = con.cursor()
+        cursor.execute("SELECT book_name FROM books")
+        data = cursor.fetchall()
+        print(data)
+        for i in data:
+                self.listWidget.addItem(i[0])
 
 
 if __name__ == "__main__":

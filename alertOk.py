@@ -7,9 +7,10 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
+alertText = 'เพิ่มรายการสำเร็จ'
 
 class alertMessage(object):
+    
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(434, 232)
@@ -57,7 +58,7 @@ class alertMessage(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label.setText(_translate("Dialog", "เพิ่มรายการหนังสือสำเร็จ"))
+        self.label.setText(_translate("Dialog", alertText))
         #self.cancelButton.setText(_translate("Dialog", "OK"))
         #self.cancelButton.clicked.connect(self.cancel)
 

@@ -25,7 +25,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(27, 29, 35);</string>
   </property>
-  <widget class="QLineEdit" name="usernameText">
+  <widget class="QLineEdit" name="booknameText">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -49,21 +49,19 @@
 	color: #FFF;
 	padding-left: 20px;
 	padding-right: 20px;
-	backgroud-color: rgb(27, 29, 35);
 }
 QLineEdit:hover {
 	border: 2px solid rgb(48, 50, 62);
 }
 QLineEdit:focus {
 	border: 2px solid rgb(85, 170, 255);
-backgroud-color: rgb(43, 45, 56);
 }</string>
    </property>
    <property name="placeholderText">
     <string>ชื่อหนังสือ</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="passwordText">
+  <widget class="QLineEdit" name="authorText">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -87,21 +85,19 @@ backgroud-color: rgb(43, 45, 56);
 	color: #FFF;
 	padding-left: 20px;
 	padding-right: 20px;
-	backgroud-color: rgb(27, 29, 35);
 }
 QLineEdit:hover {
 	border: 2px solid rgb(48, 50, 62);
 }
 QLineEdit:focus {
 	border: 2px solid rgb(85, 170, 255);
-backgroud-color: rgb(43, 45, 56);
 }</string>
    </property>
    <property name="placeholderText">
     <string>ผู้แต่ง</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="loginbutton">
+  <widget class="QPushButton" name="addButton">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -123,7 +119,6 @@ backgroud-color: rgb(43, 45, 56);
 	color: #FFF;
 	padding-left: 20px;
 	padding-right: 20px;
-	backgroud-color: rgb(27, 29, 35);
 }
 QPushButton:hover {
 	border: 2px solid rgb(48, 50, 62);
@@ -137,7 +132,7 @@ QPushButton:hover:pressed
     <string>เพิ่มข้อมูล</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="passwordText_3">
+  <widget class="QLineEdit" name="costText">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -161,14 +156,12 @@ QPushButton:hover:pressed
 	color: #FFF;
 	padding-left: 20px;
 	padding-right: 20px;
-	backgroud-color: rgb(27, 29, 35);
 }
 QLineEdit:hover {
 	border: 2px solid rgb(48, 50, 62);
 }
 QLineEdit:focus {
 	border: 2px solid rgb(85, 170, 255);
-backgroud-color: rgb(43, 45, 56);
 }</string>
    </property>
    <property name="placeholderText">
@@ -199,7 +192,7 @@ backgroud-color: rgb(43, 45, 56);
     <string>เพิ่มรายการหนังสือ</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="loginbutton_2">
+  <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -221,7 +214,6 @@ backgroud-color: rgb(43, 45, 56);
 	color: #FFF;
 	padding-left: 20px;
 	padding-right: 20px;
-	backgroud-color: rgb(27, 29, 35);
 }
 QPushButton:hover {
 	border: 2px solid rgb(48, 50, 62);
@@ -235,7 +227,7 @@ QPushButton:hover:pressed
     <string>ยกเลิก</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="descriptionText">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -257,14 +249,12 @@ QPushButton:hover:pressed
 	color: #FFF;
 	padding-left: 20px;
 	padding-right: 20px;
-	backgroud-color: rgb(27, 29, 35);
 }
 QTextEdit:hover {
 	border: 2px solid rgb(48, 50, 62);
 }
 QTextEdit:focus {
 	border: 2px solid rgb(85, 170, 255);
-backgroud-color: rgb(43, 45, 56);
 }</string>
    </property>
    <property name="placeholderText">

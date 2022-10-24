@@ -7,8 +7,9 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
-
+import pymysql
+userSQL = 'root'
+passSQL = ''
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -19,15 +20,15 @@ class Ui_Dialog(object):
         Dialog.setFont(font)
         Dialog.setAutoFillBackground(False)
         Dialog.setStyleSheet("background-color: rgb(27, 29, 35);")
-        self.usernameText = QtWidgets.QLineEdit(Dialog)
-        self.usernameText.setGeometry(QtCore.QRect(70, 100, 371, 40))
+        self.booknameText = QtWidgets.QLineEdit(Dialog)
+        self.booknameText.setGeometry(QtCore.QRect(70, 100, 371, 40))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
-        self.usernameText.setFont(font)
-        self.usernameText.setStyleSheet("QLineEdit {\n"
+        self.booknameText.setFont(font)
+        self.booknameText.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
 "    color: #FFF;\n"
@@ -40,16 +41,16 @@ class Ui_Dialog(object):
 "QLineEdit:focus {\n"
 "    border: 2px solid rgb(85, 170, 255);\n"
 "}")
-        self.usernameText.setObjectName("usernameText")
-        self.passwordText = QtWidgets.QLineEdit(Dialog)
-        self.passwordText.setGeometry(QtCore.QRect(70, 160, 371, 41))
+        self.booknameText.setObjectName("booknameText")
+        self.authorText = QtWidgets.QLineEdit(Dialog)
+        self.authorText.setGeometry(QtCore.QRect(70, 160, 371, 41))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
-        self.passwordText.setFont(font)
-        self.passwordText.setStyleSheet("QLineEdit {\n"
+        self.authorText.setFont(font)
+        self.authorText.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
 "    color: #FFF;\n"
@@ -57,18 +58,19 @@ class Ui_Dialog(object):
 "    padding-right: 20px;\n"
 "}\n"
 "QLineEdit:hover {\n"
+"    border: 2px solid rgb(48, 50, 62);\n"
 "}\n"
 "QLineEdit:focus {\n"
 "    border: 2px solid rgb(85, 170, 255);\n"
 "}")
-        self.passwordText.setObjectName("passwordText")
-        self.loginbutton = QtWidgets.QPushButton(Dialog)
-        self.loginbutton.setGeometry(QtCore.QRect(100, 570, 161, 51))
+        self.authorText.setObjectName("authorText")
+        self.addButton = QtWidgets.QPushButton(Dialog)
+        self.addButton.setGeometry(QtCore.QRect(100, 570, 161, 51))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(18)
-        self.loginbutton.setFont(font)
-        self.loginbutton.setStyleSheet("QPushButton {\n"
+        self.addButton.setFont(font)
+        self.addButton.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
 "    color: #FFF;\n"
@@ -82,16 +84,16 @@ class Ui_Dialog(object):
 "{\n"
 "  border: 2px solid rgb(255, 73, 73);\n"
 "}")
-        self.loginbutton.setObjectName("loginbutton")
-        self.passwordText_3 = QtWidgets.QLineEdit(Dialog)
-        self.passwordText_3.setGeometry(QtCore.QRect(70, 220, 371, 41))
+        self.addButton.setObjectName("addButton")
+        self.costText = QtWidgets.QLineEdit(Dialog)
+        self.costText.setGeometry(QtCore.QRect(70, 220, 371, 41))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
-        self.passwordText_3.setFont(font)
-        self.passwordText_3.setStyleSheet("QLineEdit {\n"
+        self.costText.setFont(font)
+        self.costText.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
 "    color: #FFF;\n"
@@ -104,7 +106,7 @@ class Ui_Dialog(object):
 "QLineEdit:focus {\n"
 "    border: 2px solid rgb(85, 170, 255);\n"
 "}")
-        self.passwordText_3.setObjectName("passwordText_3")
+        self.costText.setObjectName("costText")
         self.label = QtWidgets.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(30, 20, 261, 51))
         font = QtGui.QFont()
@@ -115,13 +117,13 @@ class Ui_Dialog(object):
 "    Color: #FFF\n"
 "}")
         self.label.setObjectName("label")
-        self.loginbutton_2 = QtWidgets.QPushButton(Dialog)
-        self.loginbutton_2.setGeometry(QtCore.QRect(290, 580, 101, 41))
+        self.cancelButton = QtWidgets.QPushButton(Dialog)
+        self.cancelButton.setGeometry(QtCore.QRect(290, 580, 101, 41))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(18)
-        self.loginbutton_2.setFont(font)
-        self.loginbutton_2.setStyleSheet("QPushButton {\n"
+        self.cancelButton.setFont(font)
+        self.cancelButton.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
 "    color: #FFF;\n"
@@ -135,14 +137,14 @@ class Ui_Dialog(object):
 "{\n"
 "  border: 2px solid rgb(255, 73, 73);\n"
 "}")
-        self.loginbutton_2.setObjectName("loginbutton_2")
-        self.textEdit = QtWidgets.QTextEdit(Dialog)
-        self.textEdit.setGeometry(QtCore.QRect(70, 280, 361, 251))
+        self.cancelButton.setObjectName("cancelButton")
+        self.descriptionText = QtWidgets.QTextEdit(Dialog)
+        self.descriptionText.setGeometry(QtCore.QRect(70, 280, 361, 251))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(12)
-        self.textEdit.setFont(font)
-        self.textEdit.setStyleSheet("QTextEdit {\n"
+        self.descriptionText.setFont(font)
+        self.descriptionText.setStyleSheet("QTextEdit {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
 "    color: #FFF;\n"
@@ -155,7 +157,7 @@ class Ui_Dialog(object):
 "QTextEdit:focus {\n"
 "    border: 2px solid rgb(85, 170, 255);\n"
 "}")
-        self.textEdit.setObjectName("textEdit")
+        self.descriptionText.setObjectName("descriptionText")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -163,13 +165,39 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.usernameText.setPlaceholderText(_translate("Dialog", "ชื่อหนังสือ"))
-        self.passwordText.setPlaceholderText(_translate("Dialog", "ผู้แต่ง"))
-        self.loginbutton.setText(_translate("Dialog", "เพิ่มข้อมูล"))
-        self.passwordText_3.setPlaceholderText(_translate("Dialog", "ราคา"))
+        self.booknameText.setPlaceholderText(_translate("Dialog", "ชื่อหนังสือ"))
+        self.authorText.setPlaceholderText(_translate("Dialog", "ผู้แต่ง"))
+        self.addButton.setText(_translate("Dialog", "เพิ่มข้อมูล"))
+        self.costText.setPlaceholderText(_translate("Dialog", "ราคา"))
         self.label.setText(_translate("Dialog", "เพิ่มรายการหนังสือ"))
-        self.loginbutton_2.setText(_translate("Dialog", "ยกเลิก"))
-        self.textEdit.setPlaceholderText(_translate("Dialog", "รายละเอียด"))
+        self.cancelButton.setText(_translate("Dialog", "ยกเลิก"))
+        self.descriptionText.setPlaceholderText(_translate("Dialog", "รายละเอียด"))
+        self.addButton.clicked.connect(self.callDatabase)
+
+    def callSql(self):
+        con = pymysql.connect(host="localhost", database="python_project", user=userSQL, password=passSQL, charset="utf8")
+        print(con)
+
+    def callDatabase(self):
+        book = self.booknameText.text()
+        author = self.authorText.text()
+        cost = self.costText.text()
+        description = self.descriptionText.toPlainText()
+        sqlConnection = pymysql.connect(host="localhost", database="python_project", user=userSQL, password=passSQL,
+         charset="utf8")
+        print(sqlConnection)
+        print('Book : ', book)
+        print('Author : ', author)
+        print('Cost : ', cost)
+        print('Description : ', description)
+
+        #with sqlConnection:
+        #        with sqlConnection.cursor() as cursor:
+        #        # Create a new record
+        #                sql = "INSERT INTO `users` (`username`, `password`, `displayname`) VALUES (%s, %s, %s)"
+        #               cursor.execute(sql, ('username', 'passsword', 'displaynametest'))
+        #                sqlConnection.commit()
+
 
 
 if __name__ == "__main__":

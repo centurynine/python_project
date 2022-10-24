@@ -8,6 +8,8 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 import pymysql
+import alertOk
+
 userSQL = 'root'
 passSQL = ''
 class Ui_Dialog(object):
@@ -172,13 +174,13 @@ class Ui_Dialog(object):
         self.label.setText(_translate("Dialog", "เพิ่มรายการหนังสือ"))
         self.cancelButton.setText(_translate("Dialog", "ยกเลิก"))
         self.descriptionText.setPlaceholderText(_translate("Dialog", "รายละเอียด"))
-        self.addButton.clicked.connect(self.callDatabase)
+        self.addButton.clicked.connect(self.insertDatabase)
 
     def callSql(self):
         con = pymysql.connect(host="localhost", database="python_project", user=userSQL, password=passSQL, charset="utf8")
         print(con)
 
-    def callDatabase(self):
+    def insertDatabase(self):
         book = self.booknameText.text()
         author = self.authorText.text()
         cost = self.costText.text()
@@ -195,13 +197,12 @@ class Ui_Dialog(object):
         cursor = sqlConnection.cursor()
         cursor.execute(sql, val)
         sqlConnection.commit()
-        print(cursor.rowcount, "เพิ่ม Record สำเร็จ")
+        print("เพิ่ม " ,cursor.rowcount, "Record สำเร็จ")
         self.booknameText.setText("")
         self.authorText.setText("")
         self.costText.setText("")
         self.descriptionText.setPlainText("")
-
-
+        
 
         #with sqlConnection:
         #        with sqlConnection.cursor() as cursor:
@@ -209,7 +210,6 @@ class Ui_Dialog(object):
         #                sql = "INSERT INTO `books` (`name`, `author`, `cost`, `description`) VALUES (%s, %s, %s, %s)"
         #                cursor.execute(sql, (book, author, cost, description))
         #                sqlConnection.commit()
-
 
 
 if __name__ == "__main__":

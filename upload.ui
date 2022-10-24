@@ -227,7 +227,7 @@ QPushButton:hover:pressed
     <string>ยกเลิก</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="descriptionText">
+  <widget class="QPlainTextEdit" name="descriptionText">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -243,17 +243,17 @@ QPushButton:hover:pressed
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QTextEdit {
+    <string notr="true">QPlainTextEdit {
 	border: 2px solid rgb(37,39,48);
 	border-radius: 20px;
 	color: #FFF;
 	padding-left: 20px;
 	padding-right: 20px;
 }
-QTextEdit:hover {
+QPlainTextEdit:hover {
 	border: 2px solid rgb(48, 50, 62);
 }
-QTextEdit:focus {
+QPlainTextEdit:focus {
 	border: 2px solid rgb(85, 170, 255);
 }</string>
    </property>

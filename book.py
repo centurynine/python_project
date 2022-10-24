@@ -79,6 +79,7 @@ class Ui_Dialog(object):
         self.label.setText(_translate("Dialog", "รายการหนังสือ"))
         self.homeButton.setText(_translate("Dialog", "หน้าแรก"))
         self.homeButton.clicked.connect(self.home)
+        self.listWidget.itemActivated.connect(itemActivated_event)
 
     def home(self):
         self.window = QtWidgets.QMainWindow()
@@ -96,12 +97,19 @@ class Ui_Dialog(object):
         print('fetching data')
         con = pymysql.connect(host="localhost", database="python_project",user=userSQL, password=passSQL, charset="utf8")
         cursor = con.cursor()
-        cursor.execute("SELECT book_name,cost,author FROM books")
+        cursor.execute("SELECT book_name,cost,author,book_id FROM books")
         data = cursor.fetchall()
         print(data)
         for i in data:
+                o = [str(i[0]), str(i[1]), str(i[2]), str(i[3])]
+                item = i[3]
                 self.listWidget.addItem(i[0]+ " ราคา "+str(i[1])+" บาท\n" + " ผู้แต่ง "+str(i[2])+"\n")
+                print(o)
         con.close()
+
+
+def itemActivated_event(item):
+     print(item.text())
 
 if __name__ == "__main__":
     import sys

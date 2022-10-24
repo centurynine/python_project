@@ -14,7 +14,7 @@ import alertOk
 
 userSQL = 'root'
 passSQL = ''
-book_id = '28'
+book_id = '1'
 
 class Ui_Dialog(object):
     def setupUi(self, Upload):
@@ -178,14 +178,14 @@ class Ui_Dialog(object):
         self.addButton.setText(_translate("Dialog", "แก้ไขข้อมูล"))
         self.costText.setPlaceholderText(_translate("Dialog", "ราคา"))
         self.label.setText(_translate("Dialog", "แก้ไขข้อมูล ID: " + book_id))
-        self.cancelButton.setText(_translate("Dialog", "ยกเลิก"))
+        self.cancelButton.setText(_translate("Dialog", "Reset"))
         self.descriptionText.setPlaceholderText(
             _translate("Dialog", "รายละเอียด"))
         self.addButton.clicked.connect(self.editDatabase)
-    #    self.cancelButton.clicked.connect(self.cancelAddData)
+        self.cancelButton.clicked.connect(self.removeText)
 
 
-    def fetchDatabase(self):
+    def fetchDatabase(self): # ดึงข้อมูลจากฐานข้อมูลใส่ลงในช่อง Text
             print('fetching database')
             con = pymysql.connect(host="localhost", database="python_project",
                                   user=userSQL, password=passSQL, charset="utf8")
@@ -204,12 +204,7 @@ class Ui_Dialog(object):
             self.descriptionText.setPlainText(description[0])
             con.close()
 
-        #    self.booknameText.setText(book_name)
-        #    self.authorText.setText(cursor.execute("SELECT author FROM books WHERE book_id = %s", int(book_id)))
-        #    self.costText.setText(cursor.execute("SELECT cost FROM books WHERE book_id = %s", int(book_id)))
-        #    self.descriptionText.setPlainText(cursor.execute("SELECT description FROM books WHERE book_id = %s", int(book_id)))
-
-    def editDatabase(self):
+    def editDatabase(self): # แก้ไขข้อมูลในฐานข้อมูลหลังจากกดปุ่มแก้ไข
         book = self.booknameText.text()
         author = self.authorText.text()
         cost = self.costText.text()
@@ -223,24 +218,22 @@ class Ui_Dialog(object):
         #    self.home()
         #    cursor.execute("UPDATE books SET book_name = %s, author = %s, cost = %s, description = %s WHERE id = %s", (book, author, cost, description, book_id))
             cursor.execute("UPDATE books SET book_name=%s, author=%s, cost=%s, description=%s WHERE book_id=%s",
-                           (book, author, cost, description, self.book_id))
+                           (book, author, cost, description, book_id))
         #    con.commit()
             print("Edit data successfully")
             con.commit()
 
-    def home(self):
+    def home(self): 
         self.window = QtWidgets.QMainWindow()
         self.ui = alertOk.alertMessage("เพิ่มข้อมูลสำเร็จ")
         self.ui.setupUi(self.window)
         self.window.show()
 
-
-        # with sqlConnection:
-        #        with sqlConnection.cursor() as cursor:
-        #        # เพิ่ม Record ลงในตาราง
-        #                sql = "INSERT INTO `books` (`name`, `author`, `cost`, `description`) VALUES (%s, %s, %s, %s)"
-        #                cursor.execute(sql, (book, author, cost, description))
-        #                sqlConnection.commit()
+    def removeText(self): # ล้างข้อมูลในช่อง Text
+        self.booknameText.setText("")
+        self.authorText.setText("")
+        self.costText.setText("")
+        self.descriptionText.setPlainText("")
 
 
 if __name__ == "__main__":

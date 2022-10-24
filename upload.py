@@ -226,7 +226,6 @@ class Ui_Dialog(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
-
     def cancelAddData(self):
         self.booknameText.setText("")
         self.authorText.setText("")

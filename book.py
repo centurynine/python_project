@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'uiCreate.ui'
+# Form implementation generated from reading ui file 'uiBook.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.0
 #
@@ -25,9 +25,6 @@ class Ui_Dialog(object):
 "    Color: #FFF\n"
 "}")
         self.label.setObjectName("label")
-        self.listView = QtWidgets.QListView(Dialog)
-        self.listView.setGeometry(QtCore.QRect(40, 110, 421, 401))
-        self.listView.setObjectName("listView")
         self.homeButton = QtWidgets.QPushButton(Dialog)
         self.homeButton.setGeometry(QtCore.QRect(30, 590, 141, 51))
         font = QtGui.QFont()
@@ -50,18 +47,34 @@ class Ui_Dialog(object):
 "  border: 2px solid rgb(255, 73, 73);\n"
 "}")
         self.homeButton.setObjectName("homeButton")
-
+        self.listWidget = QtWidgets.QListWidget(Dialog)
+        self.listWidget.setGeometry(QtCore.QRect(40, 110, 421, 431))
+        self.listWidget.setStyleSheet("QListWidget {\n"
+"    border: 2px solid rgb(37,39,48);\n"
+"    border-radius: 20px;\n"
+"    color: #FFF;\n"
+"    padding-left: 20px;\n"
+"    padding-right: 20px;\n"
+"    backgroud-color: rgb(27, 29, 35);\n"
+"}\n"
+"QListWidget:hover {\n"
+"    border: 2px solid rgb(48, 50, 62);\n"
+"}\n"
+"QListWidget:hover:pressed\n"
+"{\n"
+"  border: 2px solid rgb(255, 73, 73);\n"
+"}")
+        self.listWidget.setObjectName("listWidget")
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
+        self.addList()
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label.setText(_translate("Dialog", "รายการหนังสือ"))
         self.homeButton.setText(_translate("Dialog", "หน้าแรก"))
         self.homeButton.clicked.connect(self.home)
-
-
 
     def home(self):
         self.window = QtWidgets.QMainWindow()
@@ -75,8 +88,10 @@ class Ui_Dialog(object):
     #    ui.setupUi(Dialog)
     #    Dialog.hide()
 
-
+    def addList(self):
+        self.listWidget.addItem("test")
         
+
 
 if __name__ == "__main__":
     import sys

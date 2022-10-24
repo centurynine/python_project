@@ -96,12 +96,12 @@ class Ui_Dialog(object):
         print('fetching data')
         con = pymysql.connect(host="localhost", database="python_project",user=userSQL, password=passSQL, charset="utf8")
         cursor = con.cursor()
-        cursor.execute("SELECT book_name FROM books")
+        cursor.execute("SELECT book_name,cost,author FROM books")
         data = cursor.fetchall()
         print(data)
         for i in data:
-                self.listWidget.addItem(i[0])
-
+                self.listWidget.addItem(i[0]+ " ราคา "+str(i[1])+" บาท\n" + " ผู้แต่ง "+str(i[2])+"\n")
+        con.close()
 
 if __name__ == "__main__":
     import sys

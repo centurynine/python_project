@@ -101,15 +101,21 @@ class Ui_Dialog(object):
         data = cursor.fetchall()
         print(data)
         for i in data:
-                o = [str(i[0]), str(i[1]), str(i[2]), str(i[3])]
-                item = i[3]
-                self.listWidget.addItem(i[0]+ " ราคา "+str(i[1])+" บาท\n" + " ผู้แต่ง "+str(i[2])+"\n")
-                print(o)
+                self.listWidget.addItem(i[0]+ " ราคา "+str(i[1])+" บาท\n" + " ผู้แต่ง "+str(i[2])+"\n" + " รหัสหนังสือ "+str(i[3])+"\n")
+                self.listWidget.item(data.index(i)).setData(1,i[3])
         con.close()
 
 
 def itemActivated_event(item):
-     print(item.text())
+     itemID = item.data(1)
+     print("ID : "+str(itemID))
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     import sys

@@ -29,27 +29,27 @@ class alertMessage(object):
 "    Color: #FFF\n"
 "}")
         self.label.setObjectName("label")
-        self.cancelButton = QtWidgets.QPushButton(Dialog)
-        self.cancelButton.setGeometry(QtCore.QRect(160, 160, 101, 41))
+        #self.cancelButton = QtWidgets.QPushButton(Dialog)
+        #self.cancelButton.setGeometry(QtCore.QRect(160, 160, 101, 41))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(18)
-        self.cancelButton.setFont(font)
-        self.cancelButton.setStyleSheet("QPushButton {\n"
-"    border: 2px solid rgb(37,39,48);\n"
-"    border-radius: 20px;\n"
-"    color: #FFF;\n"
-"    padding-left: 20px;\n"
-"    padding-right: 20px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"    border: 2px solid rgb(48, 50, 62);\n"
-"}\n"
-"QPushButton:hover:pressed\n"
-"{\n"
-"  border: 2px solid rgb(255, 73, 73);\n"
-"}")
-        self.cancelButton.setObjectName("cancelButton")
+        #self.cancelButton.setFont(font)
+        #self.cancelButton.setStyleSheet("QPushButton {\n"
+#"    border: 2px solid rgb(37,39,48);\n"
+#"    border-radius: 20px;\n"
+#"    color: #FFF;\n"
+##"    padding-left: 20px;\n"
+#"    padding-right: 20px;\n"
+#"}\n"
+#"QPushButton:hover {\n"
+#"    border: 2px solid rgb(48, 50, 62);\n"
+##"}\n"
+##"QPushButton:hover:pressed\n"
+#"{\n"
+#"  border: 2px solid rgb(255, 73, 73);\n"
+#"}")
+        #self.cancelButton.setObjectName("cancelButton")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -58,8 +58,14 @@ class alertMessage(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label.setText(_translate("Dialog", "เพิ่มรายการหนังสือสำเร็จ"))
-        self.cancelButton.setText(_translate("Dialog", "OK"))
+        #self.cancelButton.setText(_translate("Dialog", "OK"))
+        #self.cancelButton.clicked.connect(self.cancel)
 
+    def cancel(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = alertMessage()
+        self.ui.setupUi(self.window)
+        self.window.close()
 
 if __name__ == "__main__":
     import sys

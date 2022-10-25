@@ -12,6 +12,7 @@ import editdb
 import upload
 import loginpage
 import pymysql
+import removedb
 class Ui_uiHomePage(object):
     def setupUi(self, uiHomePage):
         uiHomePage.setObjectName("uiHomePage")
@@ -188,7 +189,8 @@ class Ui_uiHomePage(object):
         self.bookList.clicked.connect(self.openBookList)
         self.bookEdit.clicked.connect(self.openEditBook)
         self.bookAdd.clicked.connect(self.openAddBook)
-        self.signoutButton.clicked.connect(openHomepage2)
+        self.signoutButton.clicked.connect(self.signout)
+        self.bookDelete.clicked.connect(self.openRemoveBook)
       #  self.signoutButton.clicked.connect(closeWindowsx)
 
     def openBookList(self):
@@ -212,11 +214,15 @@ class Ui_uiHomePage(object):
         self.window.show()
        # uiHomePage.close()
 
-    def signout(self):
+    def openRemoveBook(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = loginpage.Ui_Dialog()
+        self.ui = removedb.Ui_removeBook()
         self.ui.setupUi(self.window)
         self.window.show()
+       # uiHomePage.close()
+
+    def signout(self):
+        sys.exit(1)
 
 def closeWindowsx():
     uiHomePage.close()

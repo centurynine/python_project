@@ -13,6 +13,9 @@ import upload
 import loginpage
 import pymysql
 import removedb
+userSQL = 'root'
+passSQL = ''
+
 class Ui_uiHomePage(object):
     def setupUi(self, uiHomePage):
         uiHomePage.setObjectName("uiHomePage")
@@ -30,7 +33,7 @@ class Ui_uiHomePage(object):
 "}")
         self.label.setObjectName("label")
         self.signoutButton = QtWidgets.QPushButton(uiHomePage)
-        self.signoutButton.setGeometry(QtCore.QRect(350, 600, 131, 41))
+        self.signoutButton.setGeometry(QtCore.QRect(320, 600, 151, 41))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(12)
@@ -177,10 +180,11 @@ class Ui_uiHomePage(object):
         QtCore.QMetaObject.connectSlotsByName(uiHomePage)
 
     def retranslateUi(self, uiHomePage):
+        self.addList()
         _translate = QtCore.QCoreApplication.translate
         uiHomePage.setWindowTitle(_translate("uiHomePage", "Dialog"))
         self.label.setText(_translate("uiHomePage", "Read with me"))
-        self.signoutButton.setText(_translate("uiHomePage", "ออกจากระบบ"))
+        self.signoutButton.setText(_translate("uiHomePage", "ออกจากโปรแกรม"))
         self.bookList.setText(_translate("uiHomePage", "รายการหนังสือ"))
         self.bookAdd.setText(_translate("uiHomePage", "เพิ่มรายการหนังสือ"))
         self.bookEdit.setText(_translate("uiHomePage", "แก้ไขรายการหนังสือ"))
@@ -192,6 +196,19 @@ class Ui_uiHomePage(object):
         self.signoutButton.clicked.connect(self.signout)
         self.bookDelete.clicked.connect(self.openRemoveBook)
       #  self.signoutButton.clicked.connect(closeWindowsx)
+
+    def addList(self):
+        print('fetching data')
+        con = pymysql.connect(host="localhost", database="python_project",user=userSQL, password=passSQL, charset="utf8")
+        cursor = con.cursor()
+        cursor.execute("SELECT book_name,cost,author,book_id FROM books")
+        data = cursor.fetchall()
+        print(data)
+        for i in data:
+                self.listWidget.addItem(i[0]+ " ราคา "+str(i[1])+" บาท\n" + " ผู้แต่ง "+str(i[2])+"\n" + " รหัสหนังสือ "+str(i[3])+"\n")
+                self.listWidget.item(data.index(i)).setData(1,i[3])
+        con.close()
+
 
     def openBookList(self):
         self.window = QtWidgets.QMainWindow()

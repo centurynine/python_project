@@ -15,6 +15,7 @@ class Ui_uiAboutUs(object):
         uiHomePage.resize(495, 659)
         uiHomePage.setAutoFillBackground(False)
         uiHomePage.setStyleSheet("background-color: rgb(27, 29, 35);")
+        uiHomePage.setWindowIcon(QtGui.QIcon('icon.png'))
         self.label = QtWidgets.QLabel(uiHomePage)
         self.label.setGeometry(QtCore.QRect(150, 30, 211, 51))
         font = QtGui.QFont()

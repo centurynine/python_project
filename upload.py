@@ -9,7 +9,6 @@
 from turtle import home
 from PyQt6 import QtCore, QtGui, QtWidgets
 import pymysql
-import alertOk
 
 userSQL = 'root'
 passSQL = ''
@@ -25,6 +24,7 @@ class Ui_Dialog(object):
         Upload.setFont(font)
         Upload.setAutoFillBackground(False)
         Upload.setStyleSheet("background-color: rgb(27, 29, 35);")
+        Upload.setWindowIcon(QtGui.QIcon('icon.png'))
         self.booknameText = QtWidgets.QLineEdit(Upload)
         self.booknameText.setGeometry(QtCore.QRect(70, 100, 371, 40))
         font = QtGui.QFont()
@@ -219,12 +219,6 @@ class Ui_Dialog(object):
         # self.costText.setText("")
         # self.descriptionText.setPlainText("")
         # self.home()
-
-    def home(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = alertOk.alertMessage("เพิ่มข้อมูลสำเร็จ")
-        self.ui.setupUi(self.window)
-        self.window.show()
 
     def cancelAddData(self):
         self.booknameText.setText("")

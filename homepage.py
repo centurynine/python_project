@@ -10,7 +10,6 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 import book
 import editdb
 import upload
-import loginpage
 import pymysql
 import removedb
 import AboutUs
@@ -23,6 +22,7 @@ class Ui_uiHomePage(object):
         uiHomePage.resize(495, 659)
         uiHomePage.setAutoFillBackground(False)
         uiHomePage.setStyleSheet("background-color: rgb(27, 29, 35);")
+        uiHomePage.setWindowIcon(QtGui.QIcon('icon.png'))
         self.label = QtWidgets.QLabel(uiHomePage)
         self.label.setGeometry(QtCore.QRect(150, 30, 221, 51))
         font = QtGui.QFont()

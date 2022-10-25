@@ -23,6 +23,7 @@ class bookMain(object):
         Dialog.resize(495, 659)
         Dialog.setAutoFillBackground(False)
         Dialog.setStyleSheet("background-color: rgb(27, 29, 35);")
+        Dialog.setWindowIcon(QtGui.QIcon('icon.png'))
         self.label = QtWidgets.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(50, 30, 261, 51))
         font = QtGui.QFont()

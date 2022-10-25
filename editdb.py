@@ -9,7 +9,6 @@ from tokenize import String
 from turtle import home
 from PyQt6 import QtCore, QtGui, QtWidgets
 import pymysql
-import alertOk
 
 userSQL = 'root'
 passSQL = ''
@@ -20,6 +19,7 @@ class Ui_editBook(object):
     def setupUi(self, editBook):
         editBook.setObjectName("editBook")
         editBook.resize(495, 659)
+        editBook.setWindowIcon(QtGui.QIcon('icon.png'))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(12)
@@ -294,12 +294,6 @@ class Ui_editBook(object):
         #    con.commit()
             print("Edit data successfully")
             con.commit()
-
-    def home(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = alertOk.alertMessage("เพิ่มข้อมูลสำเร็จ")
-        self.ui.setupUi(self.window)
-        self.window.show()
 
     def removeText(self):  # ล้างข้อมูลในช่อง Text
         self.booknameText.setText("")

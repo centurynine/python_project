@@ -123,13 +123,16 @@ class Ui_Dialog(object):
                 
         else:
             print("Connection successful")
+            self.openHomepage()
             sqlConnection.close()
 
     def openHomepage(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = book()
+        self.ui = book.bookMain()
         self.ui.setupUi(self.window)
         self.window.show()
+        Dialog.hide()
+
 
         # with sqlConnection:
         #        with sqlConnection.cursor() as cursor:

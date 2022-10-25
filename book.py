@@ -91,13 +91,14 @@ class bookMain(object):
         self.ui = homepage.Ui_uiHomePage()
         self.ui.setupUi(self.window)
         self.window.show()
-        Dialog.hide()
-
-    #def hideBook():
-    #    Dialog = QtWidgets.QDialog()
-    #    ui = Ui_Dialog()
-    #    ui.setupUi(Dialog)
-    #    Dialog.hide()
+    #    closeWindowsz()
+        
+     #   QtWidgets.QDialog().hide()
+    def closeWindows2(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = bookMain()
+        self.ui.setupUi(self.window)
+        self.window.hide()
 
     def addList(self):
         print('fetching data')
@@ -125,7 +126,8 @@ def itemActivated_event(item):
         global selectedBook
         selectedBook = itemID
     
-
+def closeWindowsz():
+    Dialog.hide()
 
 if __name__ == "__main__":
     import sys

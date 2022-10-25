@@ -10,7 +10,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 import book
 import editdb
 import upload
-import logindb
+import loginpage
 import pymysql
 class Ui_uiHomePage(object):
     def setupUi(self, uiHomePage):
@@ -189,35 +189,37 @@ class Ui_uiHomePage(object):
         self.bookEdit.clicked.connect(self.openEditBook)
         self.bookAdd.clicked.connect(self.openAddBook)
         self.signoutButton.clicked.connect(self.signout)
+        self.signoutButton.clicked.connect(closeWindowsx)
 
     def openBookList(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = book.bookMain()
         self.ui.setupUi(self.window)
         self.window.show()
-        uiHomePage.hide()
+      #  uiHomePage.close()
 
     def openEditBook(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = editdb.Ui_editBook()
         self.ui.setupUi(self.window)
         self.window.show()
-        uiHomePage.hide()
+     #   uiHomePage.close()
 
     def openAddBook(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = upload.Ui_Dialog()
         self.ui.setupUi(self.window)
         self.window.show()
-        uiHomePage.hide()
+       # uiHomePage.close()
 
     def signout(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = upload.Ui_Dialog()
+        self.ui = loginpage.Ui_Dialog()
         self.ui.setupUi(self.window)
         self.window.show()
-        uiHomePage.hide()    
 
+def closeWindowsx():
+    uiHomePage.close()
 
 if __name__ == "__main__":
     import sys

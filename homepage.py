@@ -195,7 +195,7 @@ class Ui_uiHomePage(object):
         self.bookList.clicked.connect(self.openBookList)
         self.bookEdit.clicked.connect(self.openEditBook)
         self.bookAdd.clicked.connect(self.openAddBook)
-        self.signoutButton.clicked.connect(uiHomePage.close)
+        self.signoutButton.clicked.connect(self.callMessageBox)
         self.bookDelete.clicked.connect(self.openRemoveBook)
         self.aboutusButton.clicked.connect(self.openAboutUs)
       #  self.signoutButton.clicked.connect(closeWindowsx)
@@ -253,6 +253,8 @@ class Ui_uiHomePage(object):
         sys.exit(1)
 
 
+    def callMessageBox(self):
+        self.messageBox('โปรดยืนยัน','ต้องการปิดโปรแกรมหรือไม่')
 
     def messageBox(self,title,message):
         print('messageBox')
@@ -265,7 +267,7 @@ class Ui_uiHomePage(object):
                      QMessageBox.StandardButton.No)
         x = msg.exec()
         if x == QMessageBox.StandardButton.Yes:
-                print("OK!")
+                uiHomePage.close()
         elif x == QMessageBox.StandardButton.No:
                 print("NO!")
 

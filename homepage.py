@@ -242,7 +242,6 @@ class Ui_uiHomePage(object):
        # uiHomePage.close()
 
     def openAboutUs(self):
-        self.messageBox('OK','NOOO')
         self.window = QtWidgets.QMainWindow()
         self.ui = AboutUs.Ui_uiAboutUs()
         self.ui.setupUi(self.window)

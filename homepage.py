@@ -188,8 +188,8 @@ class Ui_uiHomePage(object):
         self.bookList.clicked.connect(self.openBookList)
         self.bookEdit.clicked.connect(self.openEditBook)
         self.bookAdd.clicked.connect(self.openAddBook)
-        self.signoutButton.clicked.connect(self.signout)
-        self.signoutButton.clicked.connect(closeWindowsx)
+        self.signoutButton.clicked.connect(openHomepage2)
+      #  self.signoutButton.clicked.connect(closeWindowsx)
 
     def openBookList(self):
         self.window = QtWidgets.QMainWindow()
@@ -220,6 +220,20 @@ class Ui_uiHomePage(object):
 
 def closeWindowsx():
     uiHomePage.close()
+
+def openHomepage2():
+    Ui_Dialog = QtWidgets.QMainWindow()
+    ui = Ui_Dialog()
+    ui.setupUi(Ui_Dialog)
+    Ui_Dialog.show()
+    sys.exit(app.exec_())
+
+#     Dialog2 = QtWidgets.QDialog()
+#     ui = loginpage.Ui_Dialog()
+#     ui.setupUi(Dialog2)
+#     Dialog2.show()
+#     Dialog2.exec()
+
 
 if __name__ == "__main__":
     import sys

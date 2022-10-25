@@ -148,12 +148,14 @@ class Ui_Dialog(object):
 def closeWindows():
     Dialog.close()
 
-# def openHomepage2():
-#     window = QtWidgets.QMainWindow()
-#     ui = homepage.Ui_uiHomePage()
-#     ui.setupUi(window)
-#     window.show()
-#     closeWindows()
+def openHomepage2():
+  #  Ui_Dialog.Dialog.hide()
+    Dialog2 = QtWidgets.QDialog()
+    ui = homepage.Ui_uiHomePage()
+    ui.setupUi(Dialog2)
+    Dialog2.show()
+    Dialog2.exec()
+
 
 if __name__ == "__main__":
     import sys

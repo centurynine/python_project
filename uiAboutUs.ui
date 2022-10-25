@@ -46,7 +46,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="signoutButton">
+  <widget class="QPushButton" name="closeButton">
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -81,7 +81,7 @@ QPushButton:hover:pressed
     <string>ปิดหน้าต่าง</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="bookAdd">
+  <widget class="QPushButton" name="name1">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -116,7 +116,7 @@ QPushButton:hover:pressed
     <string>นายสรัล วรรณภูงา 116310400136-2</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="bookAdd_2">
+  <widget class="QPushButton" name="name2">
    <property name="geometry">
     <rect>
      <x>50</x>

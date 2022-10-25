@@ -13,6 +13,7 @@ import upload
 import loginpage
 import pymysql
 import removedb
+import AboutUs
 userSQL = 'root'
 passSQL = ''
 
@@ -193,8 +194,9 @@ class Ui_uiHomePage(object):
         self.bookList.clicked.connect(self.openBookList)
         self.bookEdit.clicked.connect(self.openEditBook)
         self.bookAdd.clicked.connect(self.openAddBook)
-        self.signoutButton.clicked.connect(self.signout)
+        self.signoutButton.clicked.connect(uiHomePage.close)
         self.bookDelete.clicked.connect(self.openRemoveBook)
+        self.aboutusButton.clicked.connect(self.openAboutUs)
       #  self.signoutButton.clicked.connect(closeWindowsx)
 
     def addList(self):
@@ -234,6 +236,13 @@ class Ui_uiHomePage(object):
     def openRemoveBook(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = removedb.Ui_removeBook()
+        self.ui.setupUi(self.window)
+        self.window.show()
+       # uiHomePage.close()
+
+    def openAboutUs(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = AboutUs.Ui_uiAboutUs()
         self.ui.setupUi(self.window)
         self.window.show()
        # uiHomePage.close()

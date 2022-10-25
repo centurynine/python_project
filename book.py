@@ -81,8 +81,8 @@ class bookMain(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label.setText(_translate("Dialog", "รายการหนังสือ"))
-        self.homeButton.setText(_translate("Dialog", "หน้าแรก"))
-        self.homeButton.clicked.connect(self.home)
+        self.homeButton.setText(_translate("Dialog", "ปิดหน้าต่าง"))
+        self.homeButton.clicked.connect(Dialog.close)
         self.listWidget.itemClicked.connect(itemActivated_event)
         self.listWidget.itemActivated.connect(self.openEditData)
 

@@ -7,9 +7,10 @@
 
 
 from re import S
+from turtle import home
 from PyQt6 import QtCore, QtGui, QtWidgets
 from pygame import Cursor
-import MyApp
+import homepage
 import pymysql
 import editdb
 selectedBook = ''
@@ -87,9 +88,10 @@ class bookMain(object):
 
     def home(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = MyApp.Ui_Dialog()
+        self.ui = homepage.Ui_uiHomePage()
         self.ui.setupUi(self.window)
         self.window.show()
+        Dialog.hide()
 
     #def hideBook():
     #    Dialog = QtWidgets.QDialog()

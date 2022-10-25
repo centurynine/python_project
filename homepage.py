@@ -7,8 +7,11 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
-
+import book
+import editdb
+import upload
+import logindb
+import pymysql
 class Ui_uiHomePage(object):
     def setupUi(self, uiHomePage):
         uiHomePage.setObjectName("uiHomePage")
@@ -182,6 +185,38 @@ class Ui_uiHomePage(object):
         self.bookEdit.setText(_translate("uiHomePage", "แก้ไขรายการหนังสือ"))
         self.bookDelete.setText(_translate("uiHomePage", "ลบรายการหนังสือ"))
         self.aboutusButton.setText(_translate("uiHomePage", "About us"))
+        self.bookList.clicked.connect(self.openBookList)
+        self.bookEdit.clicked.connect(self.openEditBook)
+        self.bookAdd.clicked.connect(self.openAddBook)
+        self.signoutButton.clicked.connect(self.signout)
+
+    def openBookList(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = book.bookMain()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        uiHomePage.hide()
+
+    def openEditBook(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = editdb.Ui_editBook()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        uiHomePage.hide()
+
+    def openAddBook(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = upload.Ui_Dialog()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        uiHomePage.hide()
+
+    def signout(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = upload.Ui_Dialog()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        uiHomePage.hide()    
 
 
 if __name__ == "__main__":

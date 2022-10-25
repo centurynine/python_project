@@ -226,7 +226,7 @@ class Ui_removeBook(object):
         self.book_fetch_id.setPlaceholderText(
             _translate("editBook", "ไอดีหนังสือ"))
         self.fetchButton.setText(_translate("editBook", "Fetch"))
-        self.addButton.clicked.connect(self.removeDatabase)
+        self.addButton.clicked.connect(self.openConfirm)
         self.cancelButton.clicked.connect(self.removeText)
         self.fetchButton.clicked.connect(self.fecthID)
 
@@ -276,6 +276,11 @@ class Ui_removeBook(object):
         self.descriptionText.setPlainText(description[0])
         con.close()
 
+
+    def openConfirm(self):
+        self.messageBox('โปรดยืนยัน','ต้องการลบข้อมูลหรือไม่')
+
+
     def removeDatabase(self):  # แก้ไขข้อมูลในฐานข้อมูลหลังจากกดปุ่มแก้ไข
         book = self.booknameText.text()
         author = self.authorText.text()
@@ -287,14 +292,15 @@ class Ui_removeBook(object):
             con = pymysql.connect(host="localhost", database="python_project",
                                   user=userSQL, password=passSQL, charset="utf8")
             cursor = con.cursor()
-        #    self.home()
-        #    cursor.execute("UPDATE books SET book_name = %s, author = %s, cost = %s, description = %s WHERE id = %s", (book, author, cost, description, book_id))
-            cursor.execute("DELETE FROM books WHERE book_id=%s",(book_id))
-        #    con.commit()
-            print("Remove data successfully")
-            con.commit()
-            self.removeText()
-
+            checkBook = cursor.execute("SELECT book_id FROM books WHERE book_id = %s", book_id)
+            if checkBook == 0:
+                print("ไม่พบหนังสือ")
+            else:
+                cursor.execute("DELETE FROM books WHERE book_id = %s", book_id)
+                con.commit()
+                print("ลบข้อมูลสำเร็จ")
+                self.removeText()
+                con.close()
 
     def removeText(self):  # ล้างข้อมูลในช่อง Text
         self.booknameText.setText("")
@@ -302,7 +308,21 @@ class Ui_removeBook(object):
         self.costText.setText("")
         self.descriptionText.setPlainText("")
 
-
+    def messageBox(self,title,message):
+        print('messageBox')
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox().Icon.Question)
+        msg.setWindowIcon(QtGui.QIcon('icon.png'))
+        msg.setText(message)
+        msg.setWindowTitle(title)
+        msg.setStandardButtons(QMessageBox.StandardButton.Yes | 
+                     QMessageBox.StandardButton.No)
+        x = msg.exec()
+        if x == QMessageBox.StandardButton.Yes:
+                self.removeDatabase()
+        elif x == QMessageBox.StandardButton.No:
+                print("Cancel")
+                
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

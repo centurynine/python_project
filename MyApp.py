@@ -120,7 +120,8 @@ class Ui_Dialog(object):
         
         except pymysql.err.OperationalError as e:
                 print("Error %d: %s" % (e.args[0], e.args[1]))
-                
+                if(e.args[0]==1045):
+                    print("Invalid username or password")
         else:
             print("Connection successful")
             self.openHomepage()

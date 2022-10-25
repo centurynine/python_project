@@ -84,28 +84,28 @@ class Ui_Dialog(object):
 "  border: 2px solid rgb(255, 73, 73);\n"
 "}")
         self.loginbutton.setObjectName("loginbutton")
-        self.fetchdata = QtWidgets.QPushButton(Dialog)
-        self.fetchdata.setGeometry(QtCore.QRect(160, 480, 181, 51))
+      #  self.fetchdata = QtWidgets.QPushButton(Dialog)
+      #  self.fetchdata.setGeometry(QtCore.QRect(160, 480, 181, 51))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(18)
-        self.fetchdata.setFont(font)
-        self.fetchdata.setStyleSheet("QPushButton {\n"
-"    border: 2px solid rgb(37,39,48);\n"
-"    border-radius: 20px;\n"
-"    color: #FFF;\n"
-"    padding-left: 20px;\n"
-"    padding-right: 20px;\n"
-"    backgroud-color: rgb(27, 29, 35);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    border: 2px solid rgb(48, 50, 62);\n"
-"}\n"
-"QPushButton:hover:pressed\n"
-"{\n"
-"  border: 2px solid rgb(255, 73, 73);\n"
-"}")
-        self.fetchdata.setObjectName("fetchdata")
+      #  self.fetchdata.setFont(font)
+       # self.fetchdata.setStyleSheet("QPushButton {\n"
+# "    border: 2px solid rgb(37,39,48);\n"
+# "    border-radius: 20px;\n"
+# "    color: #FFF;\n"
+# "    padding-left: 20px;\n"
+# "    padding-right: 20px;\n"
+# "    backgroud-color: rgb(27, 29, 35);\n"
+# "}\n"
+# "QPushButton:hover {\n"
+# "    border: 2px solid rgb(48, 50, 62);\n"
+# "}\n"
+# "QPushButton:hover:pressed\n"
+# "{\n"
+# "  border: 2px solid rgb(255, 73, 73);\n"
+# "}")
+       # self.fetchdata.setObjectName("fetchdata")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -116,9 +116,9 @@ class Ui_Dialog(object):
         self.usernameText.setPlaceholderText(_translate("Dialog", "Username"))
         self.passwordText.setPlaceholderText(_translate("Dialog", "Password"))
         self.loginbutton.setText(_translate("Dialog", "Login"))
-        self.fetchdata.setText(_translate("Dialog", "Fetch data"))
+      #  self.fetchdata.setText(_translate("Dialog", "Fetch data"))
         self.loginbutton.clicked.connect(self.callSql)
-        self.fetchdata.clicked.connect(self.callDatabase)
+      #  self.fetchdata.clicked.connect(self.callDatabase)
 
 
     def callSql(self):

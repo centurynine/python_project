@@ -10,6 +10,8 @@ from turtle import home
 from PyQt6 import QtCore, QtGui, QtWidgets
 import pymysql
 import alertOk
+from editdb import EditDatabaseClass
+
 
 userSQL = 'root'
 passSQL = ''

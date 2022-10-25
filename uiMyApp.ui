@@ -131,40 +131,31 @@ QPushButton:hover:pressed
     <string>Login</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="fetchdata">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>480</y>
-     <width>181</width>
+     <x>120</x>
+     <y>50</y>
+     <width>261</width>
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Cloud Light</family>
-     <pointsize>18</pointsize>
+     <pointsize>26</pointsize>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton {
-	border: 2px solid rgb(37,39,48);
-	border-radius: 20px;
-	color: #FFF;
-	padding-left: 20px;
-	padding-right: 20px;
-	backgroud-color: rgb(27, 29, 35);
-}
-QPushButton:hover {
-	border: 2px solid rgb(48, 50, 62);
-}
-QPushButton:hover:pressed
-{
-  border: 2px solid rgb(255, 73, 73);
+    <string notr="true">QLabel {
+	Color: #FFF
 }</string>
    </property>
    <property name="text">
-    <string>Fetch data</string>
+    <string>เข้าสู่ระบบ</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

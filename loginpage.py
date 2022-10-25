@@ -121,6 +121,20 @@ class Ui_Dialog(object):
                 print("Error %d: %s" % (e.args[0], e.args[1]))
                 if(e.args[0]==1045):
                     print("Invalid username or password")
+                elif(e.args[0]==1049):
+                    print("Database not found")
+                elif(e.args[0]==2003):
+                    print("Server not found")
+                elif(e.args[0]==2005):
+                    print("Unknown host")
+                elif(e.args[0]==2006):
+                    print("Server has gone away")
+                elif(e.args[0]==2013):
+                    print("Lost connection to MySQL server during query")
+                elif(e.args[0]==2019):
+                    print("Access denied for user")
+                elif(e.args[0]==2026):
+                    print("Too many connections")
         else:
             print("Connection successful")
             self.openHomepage()

@@ -137,7 +137,7 @@ QPushButton:hover:pressed
     <rect>
      <x>60</x>
      <y>270</y>
-     <width>371</width>
+     <width>231</width>
      <height>41</height>
     </rect>
    </property>
@@ -232,7 +232,7 @@ QPushButton:hover:pressed
     <rect>
      <x>60</x>
      <y>320</y>
-     <width>361</width>
+     <width>371</width>
      <height>251</height>
     </rect>
    </property>
@@ -330,6 +330,43 @@ QPushButton:hover:pressed
    </property>
    <property name="text">
     <string>Fetch</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="statusBook">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>271</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="accessibleDescription">
+    <string/>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QComboBox {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+QComboBox:hover {
+	border: 2px solid rgb(48, 50, 62);
+}
+QComboBox:focus {
+	border: 2px solid rgb(85, 170, 255);
+}</string>
+   </property>
+   <property name="currentText">
+    <string/>
    </property>
   </widget>
  </widget>

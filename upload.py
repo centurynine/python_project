@@ -192,7 +192,7 @@ class Ui_Dialog(object):
             self.authorText.setText("")
             self.costText.setText("")
             self.descriptionText.setPlainText("")
-            self.home()
+        #    self.home()
         # sqlConnection = pymysql.connect(host="localhost", database="python_project", user=userSQL, password=passSQL,
         #  charset="utf8")
         # print(sqlConnection)

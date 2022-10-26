@@ -5,11 +5,9 @@ from pygame import Cursor
 import homepage
 import pymysql
 import editdb
-selectedBook = ''
 userSQL = 'root'
 passSQL = ''
 class bookMain(object):
-    selectedBook = '27'
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(495, 659)

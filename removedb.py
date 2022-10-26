@@ -282,6 +282,7 @@ class Ui_removeBook(object):
         description = self.descriptionText.toPlainText()
         if (book_id == ''):
             print("Please fill id book")
+            self.messageBoxFillId('ผิดพลาด', 'กรุณาใส่ไอดีหนังสือ')
         else:
             con = pymysql.connect(host="localhost", database="python_project",
                                   user=userSQL, password=passSQL, charset="utf8")
@@ -316,7 +317,19 @@ class Ui_removeBook(object):
                 self.removeDatabase()
         elif x == QMessageBox.StandardButton.No:
                 print("Cancel")
-                
+
+
+    def messageBoxFillId(self,title,message):
+        print('messageBox FillID')
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox().Icon.Information)
+        msg.setWindowIcon(QtGui.QIcon('icon.png'))
+        msg.setText(message)
+        msg.setWindowTitle(title)
+        msg.setStandardButtons(QMessageBox.StandardButton.Yes)
+        msg.exec()
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

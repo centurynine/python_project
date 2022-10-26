@@ -204,6 +204,10 @@ class Ui_uiHomePage(object):
                 self.listWidget.item(data.index(i)).setData(1,i[3])
         con.close()
 
+    def findSel(self, current):
+        currentItem = self.itemWidget(current)
+        pixmap = currentItem.pixmap()
+        print (pixmap)
 
     def openBookList(self):
         self.window = QtWidgets.QMainWindow()

@@ -326,7 +326,7 @@ class Ui_removeBook(object):
         msg.setWindowIcon(QtGui.QIcon('icon.png'))
         msg.setText(message)
         msg.setWindowTitle(title)
-        msg.setStandardButtons(QMessageBox.StandardButton.Yes)
+        msg.setStandardButtons(QMessageBox.StandardButton.Ok)
         msg.exec()
 
 

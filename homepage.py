@@ -245,6 +245,7 @@ class Ui_uiHomePage(object):
        # uiHomePage.close()
 
     def signout(self):
+        import sys
         sys.exit(1)
 
 
@@ -262,7 +263,8 @@ class Ui_uiHomePage(object):
                      QMessageBox.StandardButton.No)
         x = msg.exec()
         if x == QMessageBox.StandardButton.Yes:
-                uiHomePage.close()
+                import sys
+                sys.exit(1)
         elif x == QMessageBox.StandardButton.No:
                 print("NO!")
 

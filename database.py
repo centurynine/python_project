@@ -1,0 +1,2 @@
+userSQL = 'root'
+passSQL = ''

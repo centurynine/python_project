@@ -6,8 +6,7 @@ import upload
 import pymysql
 import removedb
 import AboutUs
-userSQL = 'root'
-passSQL = ''
+from database import *
 
 class Ui_uiHomePage(object):
     def setupUi(self, uiHomePage):

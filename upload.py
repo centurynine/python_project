@@ -1,10 +1,7 @@
 from turtle import home
 from PyQt6 import QtCore, QtGui, QtWidgets
 import pymysql
-
-userSQL = 'root'
-passSQL = ''
-
+from database import *
 
 class Ui_Dialog(object):
     def setupUi(self, Upload):

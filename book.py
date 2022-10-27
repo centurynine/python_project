@@ -5,8 +5,7 @@ from pygame import Cursor
 import homepage
 import pymysql
 import editdb
-userSQL = 'root'
-passSQL = ''
+from database import *
 class bookMain(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")

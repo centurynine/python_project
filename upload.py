@@ -192,39 +192,12 @@ class Ui_Dialog(object):
             self.authorText.setText("")
             self.costText.setText("")
             self.descriptionText.setPlainText("")
-        #    self.home()
-        # sqlConnection = pymysql.connect(host="localhost", database="python_project", user=userSQL, password=passSQL,
-        #  charset="utf8")
-        # print(sqlConnection)
-        # print('Book : ', book)
-        # print('Author : ', author)
-        # print('Cost : ', cost)
-        # print('Description : ', description)
-        # sql = "INSERT INTO books (book_name, author, cost, description) VALUES (%s, %s, %s, %s)"
-        # val = (book, author, cost, description)
-        # cursor = sqlConnection.cursor()
-        # cursor.execute(sql, val)
-        # sqlConnection.commit()
-        # print("เพิ่ม " ,cursor.rowcount, "Record สำเร็จ")
-        # self.booknameText.setText("")
-        # self.authorText.setText("")
-        # self.costText.setText("")
-        # self.descriptionText.setPlainText("")
-        # self.home()
 
     def cancelAddData(self):
         self.booknameText.setText("")
         self.authorText.setText("")
         self.costText.setText("")
         self.descriptionText.setPlainText("")
-
-
-        # with sqlConnection:
-        #        with sqlConnection.cursor() as cursor:
-        #        # เพิ่ม Record ลงในตาราง
-        #                sql = "INSERT INTO `books` (`name`, `author`, `cost`, `description`) VALUES (%s, %s, %s, %s)"
-        #                cursor.execute(sql, (book, author, cost, description))
-        #                sqlConnection.commit()
 
 
 if __name__ == "__main__":

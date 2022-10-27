@@ -196,11 +196,11 @@ class Ui_uiHomePage(object):
         print('fetching data')
         con = pymysql.connect(host="localhost", database="python_project",user=userSQL, password=passSQL, charset="utf8")
         cursor = con.cursor()
-        cursor.execute("SELECT book_name,cost,author,book_id FROM books")
+        cursor.execute("SELECT book_name,cost,author,book_id ,status FROM books")
         data = cursor.fetchall()
         print(data)
         for i in data:
-                self.listWidget.addItem(i[0]+ "\n ราคา "+str(i[1])+" บาท\n" + " ผู้แต่ง "+str(i[2])+"\n" + " รหัสหนังสือ "+str(i[3])+"\n")
+                self.listWidget.addItem(i[0]+ "\n ราคา "+str(i[1])+" บาท\n" + " ผู้แต่ง "+str(i[2])+"\n" + " รหัสหนังสือ "+str(i[3])+"\n"+ " สถานะ "+str(i[4])+"\n")
                 self.listWidget.item(data.index(i)).setData(1,i[3])
         con.close()
 

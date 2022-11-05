@@ -393,7 +393,7 @@ class Ui_editBook(object):
     def retranslateUi(self, editBook):
         self.fecthID2()
         _translate = QtCore.QCoreApplication.translate
-        editBook.setWindowTitle(_translate("editBook", "Dialog"))
+        editBook.setWindowTitle(_translate("editBook", "Book Status"))
         self.booknameText.setPlaceholderText(_translate("editBook", "ชื่อหนังสือ"))
         self.authorText.setPlaceholderText(_translate("editBook", "ผู้แต่ง"))
         self.addButton.setText(_translate("editBook", "แก้ไขข้อมูล"))

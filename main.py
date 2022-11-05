@@ -116,7 +116,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Login"))
         self.usernameText.setPlaceholderText(_translate("Dialog", "Username"))
         self.registerPageButton.setText(_translate("Dialog", "สมัครสมาชิก"))
         self.label.setText(_translate("Dialog", "เข้าสู่ระบบ"))
@@ -341,7 +341,7 @@ class Ui_registerPage(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Register"))
         self.usernameText.setPlaceholderText(_translate("Dialog", "Username"))
         self.registerButton.setText(_translate("Dialog", "สมัครสมาชิก"))
         self.label.setText(_translate("Dialog", "สมัครสมาชิก"))
@@ -359,10 +359,10 @@ class Ui_registerPage(object):
         elif password != confirmPassword:
             print("รหัสผ่านไม่ตรงกัน")
         else:
-            if(len(username) < 6):
-                    print("กรุณากรอก Username มากกว่า 5 ตัวอักษร")
-            elif(len(password) < 6):
-                    print("กรุณากรอก Password มากกว่า 5 ตัวอักษร")
+            if(len(username) < 5):
+                    print("กรุณากรอก Username มากกว่า 4 ตัวอักษร")
+            elif(len(password) < 5):
+                    print("กรุณากรอก Password มากกว่า 4 ตัวอักษร")
             else:
                 try:
                         sqlConnection = pymysql.connect(host=host, database=database, user=userSQL, password=passSQL,
@@ -413,7 +413,6 @@ class Ui_registerPage(object):
         self.ui = Ui_registerPage()
         self.ui.setupUi(self.window)
         self.window.close()
-
         self.openHomepage()
 
     def openHomepage(self):

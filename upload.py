@@ -158,7 +158,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Add Book"))
         self.booknameText.setPlaceholderText(
             _translate("Dialog", "ชื่อหนังสือ"))
         self.authorText.setPlaceholderText(_translate("Dialog", "ผู้แต่ง"))

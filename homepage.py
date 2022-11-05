@@ -175,7 +175,7 @@ class Ui_uiHomePage(object):
     def retranslateUi(self, uiHomePage):
         self.addList()
         _translate = QtCore.QCoreApplication.translate
-        uiHomePage.setWindowTitle(_translate("uiHomePage", "Dialog"))
+        uiHomePage.setWindowTitle(_translate("uiHomePage", "Home"))
         self.label.setText(_translate("uiHomePage", "Read with me"))
         self.signoutButton.setText(_translate("uiHomePage", "ออกจากโปรแกรม"))
         self.bookList.setText(_translate("uiHomePage", "รายการหนังสือ"))

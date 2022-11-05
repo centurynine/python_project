@@ -69,8 +69,9 @@ class bookMain(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Book List")) 
         self.label.setText(_translate("Dialog", "รายการหนังสือ"))
-        self.homeButton.setText(_translate("Dialog", "ปิดหน้าต่าง"))
-        self.homeButton.clicked.connect(Dialog.close)
+        self.homeButton.setText(_translate("Dialog", "รีเฟรช"))
+    #    self.homeButton.clicked.connect(Dialog.close)
+        self.homeButton.clicked.connect(self.clearListWidget)
         self.listWidget.itemClicked.connect(itemActivated_event)
         self.listWidget.itemActivated.connect(self.openEditData)
 
@@ -80,7 +81,7 @@ class bookMain(object):
         self.ui.setupUi(self.window)
         self.window.show()
     #    closeWindowsz()
-        
+
      #   QtWidgets.QDialog().hide()
     def closeWindows2(self):
         self.window = QtWidgets.QDialog()
@@ -99,6 +100,11 @@ class bookMain(object):
                 self.listWidget.addItem(i[0]+ "\n ราคา "+str(i[1])+" บาท\n" + " ผู้แต่ง "+str(i[2])+"\n" + " รหัสหนังสือ "+str(i[3])+"\n"+ " สถานะ "+str(i[4])+"\n")
                 self.listWidget.item(data.index(i)).setData(1,i[3])
         con.close()
+
+
+    def clearListWidget(self):
+        self.listWidget.clear()
+        self.addList()
 
     def openEditData(self):
         global selectedBook
@@ -434,6 +440,7 @@ class Ui_editBook(object):
             print("Edit data successfully")
             con.commit()
             con.close()
+
 
     def removeText(self):  # ล้างข้อมูลในช่อง Text
         self.booknameText.setText("")

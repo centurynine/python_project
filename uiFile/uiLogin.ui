@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>495</width>
+    <height>659</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Cloud Light</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(27, 29, 35);</string>
+  </property>
+  <widget class="QLineEdit" name="usernameText">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>180</y>
+     <width>381</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+QLineEdit:hover {
+	border: 2px solid rgb(48, 50, 62);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(85, 170, 255);
+}</string>
+   </property>
+   <property name="placeholderText">
+    <string>Username</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="registerPageButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>440</y>
+     <width>161</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+QPushButton:hover {
+	border: 2px solid rgb(48, 50, 62);
+}
+QPushButton:hover:pressed
+{
+  border: 2px solid rgb(255, 73, 73);
+}</string>
+   </property>
+   <property name="text">
+    <string>สมัครสมาชิก</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>40</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>26</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+	Color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}</string>
+   </property>
+   <property name="text">
+    <string>เข้าสู่ระบบ</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="loginButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>360</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+QPushButton:hover {
+	border: 2px solid rgb(48, 50, 62);
+}
+QPushButton:hover:pressed
+{
+  border: 2px solid rgb(255, 73, 73);
+}</string>
+   </property>
+   <property name="text">
+    <string>เข้าสู่ระบบ</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="passwordText">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>250</y>
+     <width>381</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+QLineEdit:hover {
+	border: 2px solid rgb(48, 50, 62);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(85, 170, 255);
+}</string>
+   </property>
+   <property name="placeholderText">
+    <string>Password</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -45,7 +45,7 @@
     <string>สถานะหนังสือ</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="signoutButton">
+  <widget class="QPushButton" name="exitButton">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -106,7 +106,7 @@ QListWidget:hover:pressed
 }</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="bookAdd">
+  <widget class="QPushButton" name="readyButton">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -138,10 +138,10 @@ QPushButton:hover:pressed
 }</string>
    </property>
    <property name="text">
-    <string>เพิ่มรายการหนังสือ</string>
+    <string>พร้อมขาย</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="bookEdit">
+  <widget class="QPushButton" name="emptyButton">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -173,7 +173,7 @@ QPushButton:hover:pressed
 }</string>
    </property>
    <property name="text">
-    <string>แก้ไขรายการหนังสือ</string>
+    <string>หมด</string>
    </property>
   </widget>
  </widget>

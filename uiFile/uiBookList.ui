@@ -212,7 +212,7 @@ QPushButton:hover:pressed
   <widget class="QPushButton" name="bookDelete">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>30</x>
      <y>300</y>
      <width>211</width>
      <height>61</height>
@@ -277,6 +277,41 @@ QPushButton:hover:pressed
    </property>
    <property name="text">
     <string>About us</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bookStatus">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>300</y>
+     <width>211</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+QPushButton:hover {
+	border: 2px solid rgb(48, 50, 62);
+}
+QPushButton:hover:pressed
+{
+  border: 2px solid rgb(255, 73, 73);
+}</string>
+   </property>
+   <property name="text">
+    <string>สถานะหนังสือ</string>
    </property>
   </widget>
  </widget>

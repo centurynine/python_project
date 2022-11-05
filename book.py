@@ -374,9 +374,6 @@ class Ui_editBook(object):
         else:
             self.checkID()
 
-
-
-
     def fecthID(self):
         global book_id
         book_id = self.book_fetch_id.text()

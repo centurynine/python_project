@@ -6,6 +6,7 @@ import upload
 import pymysql
 import removedb
 import AboutUs
+import category
 from database import *
 
 class Ui_uiHomePage(object):
@@ -14,7 +15,6 @@ class Ui_uiHomePage(object):
         uiHomePage.resize(495, 659)
         uiHomePage.setAutoFillBackground(False)
         uiHomePage.setStyleSheet("background-color: rgb(27, 29, 35);")
-        uiHomePage.setWindowIcon(QtGui.QIcon('icon.png'))
         self.label = QtWidgets.QLabel(uiHomePage)
         self.label.setGeometry(QtCore.QRect(150, 30, 221, 51))
         font = QtGui.QFont()
@@ -26,7 +26,7 @@ class Ui_uiHomePage(object):
 "}")
         self.label.setObjectName("label")
         self.signoutButton = QtWidgets.QPushButton(uiHomePage)
-        self.signoutButton.setGeometry(QtCore.QRect(320, 600, 151, 41))
+        self.signoutButton.setGeometry(QtCore.QRect(290, 600, 191, 41))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(12)
@@ -127,7 +127,7 @@ class Ui_uiHomePage(object):
 "}")
         self.bookEdit.setObjectName("bookEdit")
         self.bookDelete = QtWidgets.QPushButton(uiHomePage)
-        self.bookDelete.setGeometry(QtCore.QRect(150, 300, 211, 61))
+        self.bookDelete.setGeometry(QtCore.QRect(30, 300, 211, 61))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(18)
@@ -168,6 +168,27 @@ class Ui_uiHomePage(object):
 "  border: 2px solid rgb(255, 73, 73);\n"
 "}")
         self.aboutusButton.setObjectName("aboutusButton")
+        self.bookStatus = QtWidgets.QPushButton(uiHomePage)
+        self.bookStatus.setGeometry(QtCore.QRect(260, 300, 211, 61))
+        font = QtGui.QFont()
+        font.setFamily("Cloud Light")
+        font.setPointSize(18)
+        self.bookStatus.setFont(font)
+        self.bookStatus.setStyleSheet("QPushButton {\n"
+"    border: 2px solid rgb(37,39,48);\n"
+"    border-radius: 20px;\n"
+"    color: #FFF;\n"
+"    padding-left: 20px;\n"
+"    padding-right: 20px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    border: 2px solid rgb(48, 50, 62);\n"
+"}\n"
+"QPushButton:hover:pressed\n"
+"{\n"
+"  border: 2px solid rgb(255, 73, 73);\n"
+"}")
+        self.bookStatus.setObjectName("bookStatus")
 
         self.retranslateUi(uiHomePage)
         QtCore.QMetaObject.connectSlotsByName(uiHomePage)
@@ -175,20 +196,22 @@ class Ui_uiHomePage(object):
     def retranslateUi(self, uiHomePage):
         self.addList()
         _translate = QtCore.QCoreApplication.translate
-        uiHomePage.setWindowTitle(_translate("uiHomePage", "Home"))
+        uiHomePage.setWindowTitle(_translate("uiHomePage", "Dialog"))
         self.label.setText(_translate("uiHomePage", "Read with me"))
-        self.signoutButton.setText(_translate("uiHomePage", "ออกจากโปรแกรม"))
+        self.signoutButton.setText(_translate("uiHomePage", "ออกจากระบบ"))
         self.bookList.setText(_translate("uiHomePage", "รายการหนังสือ"))
         self.bookAdd.setText(_translate("uiHomePage", "เพิ่มรายการหนังสือ"))
         self.bookEdit.setText(_translate("uiHomePage", "แก้ไขรายการหนังสือ"))
         self.bookDelete.setText(_translate("uiHomePage", "ลบรายการหนังสือ"))
         self.aboutusButton.setText(_translate("uiHomePage", "About us"))
+        self.bookStatus.setText(_translate("uiHomePage", "สถานะหนังสือ"))
         self.bookList.clicked.connect(self.openBookList)
         self.bookEdit.clicked.connect(self.openEditBook)
         self.bookAdd.clicked.connect(self.openAddBook)
         self.signoutButton.clicked.connect(self.callMessageBox)
         self.bookDelete.clicked.connect(self.openRemoveBook)
         self.aboutusButton.clicked.connect(self.openAboutUs)
+        self.bookStatus.clicked.connect(self.openCategory)
       #  self.signoutButton.clicked.connect(closeWindowsx)
 
     def addList(self):
@@ -239,6 +262,13 @@ class Ui_uiHomePage(object):
     def openAboutUs(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = AboutUs.Ui_uiAboutUs()
+        self.ui.setupUi(self.window)
+        self.window.show()
+       # uiHomePage.close()
+
+    def openCategory(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = category.Ui_category()
         self.ui.setupUi(self.window)
         self.window.show()
        # uiHomePage.close()

@@ -99,10 +99,28 @@ class Ui_Dialog(object):
 
     def callDatabase(self):
         username = self.usernameText.text()
-        passsword = self.passwordText.text()
+        password = self.passwordText.text()
         try:
-          sqlConnection = pymysql.connect(host=host, database="python_project", user=username, password=passsword,
+          sqlConnection = pymysql.connect(host=host, database="python_project", user='root', password='',
                                         charset="utf8")
+                                        
+          with sqlConnection.cursor() as cursor:
+            sql = "SELECT `id`, `displayname` FROM `users` WHERE username=%s"
+            cursor.execute(sql, (username))
+            result = cursor.fetchone()
+            print(result)
+            if result is not None:
+                with sqlConnection.cursor() as cursor:
+                    sql = "SELECT `id`, `displayname` FROM `users` WHERE password=%s"
+                    cursor.execute(sql, (password))
+                    result = cursor.fetchone()
+                    print(result)
+                    if result is not None:
+                        self.openHomepage()
+            else:
+                print("No data")
+
+                
         except pymysql.err.OperationalError as e:
                 print("Error %d: %s" % (e.args[0], e.args[1]))
                 if(e.args[0]==1045):
@@ -123,7 +141,7 @@ class Ui_Dialog(object):
                     print("Too many connections")
         else:
             print("Connection successful")
-            self.openHomepage()
+         #   self.openHomepage()
             sqlConnection.close()
 
     def openHomepage(self):

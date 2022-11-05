@@ -1,9 +1,8 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import pymysql
 import homepage
-
+from database import *
 class Ui_Dialog(object):
-    
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(495, 659)
@@ -86,12 +85,10 @@ class Ui_Dialog(object):
                                  "}")
         self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label.setObjectName("label")
-
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Login", "Login"))
         self.usernameText.setPlaceholderText(_translate("Login", "Username"))
@@ -99,16 +96,13 @@ class Ui_Dialog(object):
         self.loginbutton.setText(_translate("Login", "Login"))
         self.label.setText(_translate("Login", "เข้าสู่ระบบ"))
         self.loginbutton.clicked.connect(self.callDatabase)
-      #  self.fetchdata.clicked.connect(self.callDatabase)
 
     def callDatabase(self):
-        
         username = self.usernameText.text()
         passsword = self.passwordText.text()
         try:
-          sqlConnection = pymysql.connect(host="localhost", database="python_project", user=username, password=passsword,
+          sqlConnection = pymysql.connect(host=host, database="python_project", user=username, password=passsword,
                                         charset="utf8")
-        
         except pymysql.err.OperationalError as e:
                 print("Error %d: %s" % (e.args[0], e.args[1]))
                 if(e.args[0]==1045):
@@ -154,7 +148,6 @@ def openHomepage2():
     ui.setupUi(Dialog2)
     Dialog2.show()
     Dialog2.exec()
-
 
 if __name__ == "__main__":
     import sys

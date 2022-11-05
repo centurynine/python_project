@@ -232,7 +232,7 @@ class Ui_removeBook(object):
 
     def checkID(self):
         global book_id
-        con = pymysql.connect(host="localhost", database="python_project",
+        con = pymysql.connect(host=host, database="python_project",
                               user=userSQL, password=passSQL, charset="utf8")
         cursor = con.cursor()
         cursor.execute(

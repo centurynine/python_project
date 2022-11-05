@@ -251,11 +251,10 @@ class Ui_editBook(object):
 
     def checkID(self):
         global book_id
-        con = pymysql.connect(host="localhost", database="python_project",
+        con = pymysql.connect(host=host, database="python_project",
                               user=userSQL, password=passSQL, charset="utf8")
         cursor = con.cursor()
-        cursor.execute(
-            "SELECT book_name FROM books WHERE book_id = %s", book_id)
+        cursor.execute("SELECT book_name FROM books WHERE book_id = %s", book_id)
         book_name = cursor.fetchone()
         if book_name == None:
             self.booknameText.setText("ไม่พบหนังสือ")
@@ -267,13 +266,11 @@ class Ui_editBook(object):
             self.fetchDatabase()
 
     def fetchDatabase(self):  # ดึงข้อมูลจากฐานข้อมูลใส่ลงในช่อง Text
-
         print('fetching database')
         con = pymysql.connect(host="localhost", database="python_project",
                               user=userSQL, password=passSQL, charset="utf8")
         cursor = con.cursor()
-        cursor.execute(
-            "SELECT book_name FROM books WHERE book_id = %s", book_id)
+        cursor.execute("SELECT book_name FROM books WHERE book_id = %s", book_id)
         book_name = cursor.fetchone()
         cursor.execute("SELECT author FROM books WHERE book_id = %s", book_id)
         author = cursor.fetchone()
@@ -303,10 +300,10 @@ class Ui_editBook(object):
             con = pymysql.connect(host="localhost", database="python_project",
                                   user=userSQL, password=passSQL, charset="utf8")
             cursor = con.cursor()
-            cursor.execute("UPDATE books SET book_name=%s, author=%s, cost=%s, description=%s, status=%s WHERE book_id=%s",
-                           (book, author, cost, description, status, book_id))
+            cursor.execute("UPDATE books SET book_name=%s, author=%s, cost=%s, description=%s, status=%s WHERE book_id=%s",(book, author, cost, description, status, book_id))
             print("Edit data successfully")
             con.commit()
+            con.close()
 
     def removeText(self):  # ล้างข้อมูลในช่อง Text
         self.booknameText.setText("")

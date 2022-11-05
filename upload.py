@@ -179,7 +179,7 @@ class Ui_Dialog(object):
         if (book == '' or author == '' or cost == '' or description == ''):
             print("Please fill all data")
         else:
-            con = pymysql.connect(host="localhost", database="python_project",
+            con = pymysql.connect(host=host, database="python_project",
                                   user=userSQL, password=passSQL, charset="utf8")
             cursor = con.cursor()
             cursor.execute("INSERT INTO books (book_name, author, cost, description) VALUES (%s, %s, %s, %s)",

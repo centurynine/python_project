@@ -359,6 +359,11 @@ class Ui_registerPage(object):
         elif password != confirmPassword:
             print("รหัสผ่านไม่ตรงกัน")
         else:
+            if(len(username) < 6):
+                    print("กรุณากรอก Username มากกว่า 5 ตัวอักษร")
+            elif(len(password) < 6):
+                    print("กรุณากรอก Password มากกว่า 5 ตัวอักษร")
+            else:
                 try:
                         sqlConnection = pymysql.connect(host=host, database=database, user=userSQL, password=passSQL,
                                                         charset="utf8")  
@@ -375,7 +380,8 @@ class Ui_registerPage(object):
                                                                 cursor.execute(sql, (username,password))
                                                                 sqlConnection.commit()
                                                                 print("สมัครสมาชิกสำเร็จ")
-                                                                self.openHomepage()
+                                                                self.closeRegister()
+                                                                 
                                 else:
                                         print("มีชื่อผู้ใช้นี้แล้ว")
 
@@ -402,14 +408,19 @@ class Ui_registerPage(object):
                         #   self.openHomepage()
                         sqlConnection.close()
 
+    def closeRegister(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_registerPage()
+        self.ui.setupUi(self.window)
+        self.window.close()
+
+        self.openHomepage()
 
     def openHomepage(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self.window)
         self.window.show()
-        Dialog.close()
-
 
 
 if __name__ == "__main__":

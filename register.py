@@ -165,6 +165,9 @@ class Ui_Dialog(object):
         elif password != confirmPassword:
             print("รหัสผ่านไม่ตรงกัน")
         else:
+                if(len(username)< 6):
+                    print("กรุณากรอก Username มากกว่า 6 ตัวอักษร")
+                
                 try:
                         sqlConnection = pymysql.connect(host=host, database=database, user=userSQL, password=passSQL,
                                                         charset="utf8")  

@@ -67,7 +67,7 @@ class bookMain(object):
     def retranslateUi(self, Dialog):
         self.addList()
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Book List")) 
         self.label.setText(_translate("Dialog", "รายการหนังสือ"))
         self.homeButton.setText(_translate("Dialog", "ปิดหน้าต่าง"))
         self.homeButton.clicked.connect(Dialog.close)
